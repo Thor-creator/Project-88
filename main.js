@@ -14,7 +14,7 @@ block_image_height = 5;
 
 function load_img(){
 	// write code to Upload golf image on the canvas
-	fabric.Image.fromURl("golf-h.png", function(Img){
+	fabric.Image.fromURL("golf-h.png", function(Img){
 		hole_obj = Img;
 		hole_obj.scaleToWidth(50);
 		hole_obj.scaleToHeight(50);
@@ -29,7 +29,7 @@ function load_img(){
 
 function new_image(){
 	// write code to Upload ball image on canvas
-	fabric.Image.fromURl("ball.png", function(Img){
+	fabric.Image.fromURL("ball.png", function(Img){
 		ball_obj = Img;
 		ball_obj.scaleToWidth(50);
 		ball_obj.scaleToHeight(50);
@@ -84,7 +84,9 @@ function my_keydown(e)
 	function up()
 	{
 		if(ball_y > 0){
-			ball_y -= 10
+			ball_y -= 20
+			canvas.remove(ball_obj)
+			new_image()
 		}
 	
 		// Write a code to move ball upward.
@@ -93,7 +95,9 @@ function my_keydown(e)
 	function down()
 	{
 		if(ball_y < 450){
-			ball_y += 10
+			ball_y += 20
+			canvas.remove(ball_obj)
+			new_image()
 		}
 		 // Write a code to move ball downward.
 	}
@@ -102,7 +106,9 @@ function my_keydown(e)
 	{
 		if(ball_x >5)
 		{
-			ball_x -=10
+			ball_x -=20
+			canvas.remove(ball_obj)
+			new_image()
 			// Write a code to move ball left side.
 		}
 	}
@@ -111,7 +117,9 @@ function my_keydown(e)
 	{
 		if(ball_x <=1050)
 		{
-			ball_x +=10
+			ball_x +=20
+			canvas.remove(ball_obj)
+			new_image()
 			// Write a code to move ball right side.
 		}
 	}
